@@ -62,6 +62,70 @@ $ slack create gh-actions-demo
    When you're ready to deploy for production use slack deploy
 ```
 
+## Deploy the app
+
+Let's deploy this app into your Slack workspace/organization.
+You can run `slack deploy` command for it:
+
+```
+$ slack deploy
+? Choose a deployed environment Install to a new workspace or organization
+? Install to a new workspace or organization acme-corp T03E94MJU
+
+🔔 If you leave this workspace or organization, you can no longer manage the installed apps
+   Installed apps will belong to the workspace or organization if you leave the workspace
+
+📚 App Manifest
+   Created app manifest for "gh-actions-demo" in "Acme Corp"
+
+🏠 App Install
+   Installing "gh-actions-demo" app to "Acme Corp"
+   Updated app icon: assets/default_new_app_icon.png
+   Finished in 4.6s
+
+⚡ Listing triggers installed to the app...
+   There are no triggers installed for the app
+
+⚡ Create a trigger
+   Searching for trigger definition files under 'triggers/*'...
+   Found 1 trigger definition file
+
+? Choose a trigger definition file: triggers/submit_issue.ts
+
+⚡ Trigger successfully created!
+
+   Submit an issue Ft********** (shortcut)
+   Created: 2023-10-24 15:45:50 +09:00 (1 second ago)
+   Collaborators:
+     Kaz Sera @seratch U03E94MK0
+   Can be found and used by:
+     everyone in the workspace
+   https://slack.com/shortcuts/Ft**********/36f28af0a74b********************
+
+🎁 App packaged and ready to deploy
+   0.016MB was packaged in 0.4s
+
+🚀 gh-actions-demo deployed in 8.6s
+   Dashboard:  https://slack.com/apps/A062VA*****
+   App Owner:  seratch (U03E94MK0)
+   Workspace:  Acme Corp (T03E94MJU)
+
+🌩  Visit your workspace or organization to try out your live app!
+   When you make any changes, update your app by re-running slack deploy
+
+💌 We would love to know how things are going
+   Survey your development experience with slack feedback --name platform-improvements
+```
+
+During the process, you will be prompted to create a link trigger.
+You can create it this time. Copy the `slack.com` URL and share it in a Slack channel or on a canvas document.
+You will see a button to start the workflow:
+
+<img width="600" src="https://user-images.githubusercontent.com/19658/277564461-c2d692a5-6df4-4e47-9abb-5b477d7d9bcb.png"/>
+
+Click the button to verify if your workflow is functioning properly.
+If it is indeed operating as expected, that implies your initial (though manual) deployment has been successful!
+
 ## Obtain the app's service token
 
 To automate the deployment, you need to acquire this app's service token to execute the `slack deploy` command without requiring any interactions on the terminal window.
@@ -170,45 +234,6 @@ jobs:
 
 Push the changes into the main branch and see how it goes.
 If the GitHub Actions job successfully completes, your app is now available in the Slack workspace :tada:
-
-## Create a link trigger
-
-Lastly, you need to create a link trigger to use the installed workflow.
-This could be a bit confusing but you don't use GitHub Actions to generate triggers this time.
-Run `slack trigger create` comamnd with the service token you've obtained as below:
-
-```
-$ slack trigger create --token xoxp-...(replace with your token)
-⚡ Searching for trigger definition files under 'triggers/*'...
-   Found 1 trigger definition file
-
-? Choose a trigger definition file: triggers/submit_issue.ts
-Selecting team 'acme-corp' with token belonging to 'acme-corp'...
-? Choose an app environment Deployed
-
-📚 App Manifest
-   Created app manifest for "gh-actions-demo" in "Acme Corp"
-
-🏠 App Install
-   Installing "gh-actions-demo" app to "Acme Corp"
-   Updated app icon: assets/default_new_app_icon.png
-   Finished in 4.4s
-
-⚡ Trigger successfully created!
-
-   Submit an issue Ft********** (shortcut)
-   Created: 2023-10-24 15:06:06 +09:00 (0 seconds ago)
-   Collaborators:
-     Kazuhiro Sera @kaz U01GCJ79JT0
-   Can be found and used by:
-     everyone in the workspace
-   https://slack.com/shortcuts/Ft**********/36f28af0a74b********************
-```
-
-Copy the `slack.com` URL and share it in a Slack channel or on a canvas document.
-You will see a button to start the workflow:
-
-<img width="600" src="https://user-images.githubusercontent.com/19658/277564461-c2d692a5-6df4-4e47-9abb-5b477d7d9bcb.png"/>
 
 ## Wrap up
 
