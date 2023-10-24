@@ -240,6 +240,7 @@ If the GitHub Actions job successfully completes, your app is now available in t
 Here are the steps you've learned through this tutorial:
 * Create a new GitHub repository
 * Create a new Slack app using the `slack create` command
+* Manually deploy the app using `slack deploy` command on your local machine
 * Obtain a service token for a Slack workspace/organization
 * Add the service token to the GitHub repository as a secret
 * Add GitHub Actions workflow to automate deployments using `slack deploy` with the service token

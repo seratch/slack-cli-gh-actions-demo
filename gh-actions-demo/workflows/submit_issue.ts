@@ -42,9 +42,9 @@ const inputForm = SubmitIssueWorkflow.addStep(
         enum: [":white_circle:", ":large_blue_circle:", ":red_circle:"],
         choices: [
           {
-            value: "low",
-            title: ":white_circle:  Low",
-            description: "Low severity",
+            value: "high",
+            title: ":red_circle:  High",
+            description: "High severity",
           },
           {
             value: "medium",
@@ -52,9 +52,9 @@ const inputForm = SubmitIssueWorkflow.addStep(
             description: "Medium severity",
           },
           {
-            value: "high",
-            title: ":red_circle:  High",
-            description: "High severity",
+            value: "low",
+            title: ":white_circle:  Low",
+            description: "Low severity",
           },
         ],
       }, {

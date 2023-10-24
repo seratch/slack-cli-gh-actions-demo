@@ -1,0 +1,11 @@
+{
+  "apps": {
+    "T03E94MJU": {
+      "app_id": "A062VAKKX6D",
+      "IsDev": false,
+      "team_domain": "seratch",
+      "team_id": "T03E94MJU"
+    }
+  },
+  "default": "seratch"
+}
