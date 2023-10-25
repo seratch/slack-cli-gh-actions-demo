@@ -17,7 +17,21 @@ For other platforms, step-by-step instructions can be found in the [Quickstart G
 curl -fsSL https://downloads.slack-edge.com/slack-cli/install.sh | bash
 ```
 
-To ensure that there are no issues with the installation, you can execute the `slack doctor` command. If everything is fine, you will see `Errors: 0` at the bottom of the output.
+If you're using the CLI for the first time, you must connect the CLI to your Slack workspace in order to deploy your automation workflows. Execute the `slack login` command, you will then be prompted to run a slash command named `/slackauthticket` with an argument in a Slack workspace/organization as below. Copy this command and run it in the Slack workspace/organization where you wish to install this app.
+
+```
+$ slack login
+
+📋 Run the following slash command in any Slack channel or DM
+   This will open a modal with user permissions for you to approve
+   Once approved, a challege code will be generated in Slack
+
+/slackauthticket MTlkOTg4OWUtOTI5My00N2E3LWJhN2QtNzJmZWM1NDVlM2E5
+
+? Enter challenge code
+```
+
+Once you've finished the login process, let's make sure if there are no issues with the installation. You can execute the `slack doctor` command for it. If everything is fine, you will see `Errors: 0` at the bottom of the output.
 
 ## Create a new app
 
@@ -130,7 +144,7 @@ If it is indeed operating as expected, that implies your initial (though manual)
 
 To automate the deployment, you need to acquire this app's service token to execute the `slack deploy` command without requiring any interactions on the terminal window.
 
-Go to the root directory of the project and run the `slack auth token` command as illustrated below. You will then be prompted to run a slash command named `/slackauthticket` with an argument in a Slack workspace/organization. Copy this command and implement it in the Slack workspace/organization where you wish to install this app.
+Go to the root directory of the project and run the `slack auth token` command as illustrated below. Similar to what you did for the `slack login` command, you will then be prompted to run a slash command named `/slackauthticket` with an argument. Copy the command and run it in Slack.
 
 ```
 $ cd gh-actions-demo/
