@@ -240,7 +240,7 @@ jobs:
       run: |
         # If you place the code in the top directory, there's no need to use this command
         cd gh-actions-demo/
-        slack deploy --s -token $SLACK_SERVICE_TOKEN
+        slack deploy -s --token $SLACK_SERVICE_TOKEN
 ```
 
 ## Push commits to main branch
